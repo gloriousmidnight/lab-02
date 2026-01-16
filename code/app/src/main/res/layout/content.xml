@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content_view"
+
+<!-- Note: some of this file was modified with the assistance of OpenAI's ChatGPT
+for the sake of helping to make the cities in the list visually checkable by asking
+how to modify my code (without changing anything drastically) so that the boxes could
+be visibly checked off, with a followup message to figure out how to align the
+checked circles in the center/left aligned within each city box (January 15th, 2026) -->
+
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    android:textSize="40sp">
-
-</TextView>
+    android:textSize="40sp"
+    android:gravity="center_vertical"
+    android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:background= "?android:attr/activatedBackgroundIndicator" />

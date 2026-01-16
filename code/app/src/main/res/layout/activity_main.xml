@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Note: some of this file was modified with the assistance of OpenAI's ChatGPT
+for the sake of assistance with XML syntax (ideas/logic created by me, Cassie Burke,
+but written in XML by ChatGPT because I am unfamiliar with the syntax specifics
+still), particularly pertaining to how formatting (layout) works in XML and Android
+Studio and the syntax of the specific layout attributes needed to position items on
+the screen in specific locations (January 15th, 2026) -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,11 +15,72 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Add City: Put it at the top, left aligned -->
+    <Button
+        android:id="@+id/add_button"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="ADD CITY"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/delete_button"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- Delete City: Aligned with the add button, but right aligned -->
+    <Button
+        android:id="@+id/delete_button"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="DELETE CITY"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- City list: Under the add/delete buttons, before the text input thing -->
     <ListView
         android:id="@+id/city_list"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        >
-    </ListView>
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+
+        app:layout_constraintTop_toBottomOf="@id/add_button"
+        app:layout_constraintBottom_toTopOf="@id/city_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Text input field: bottom of screen w/ room for confirm button -->
+    <EditText
+        android:id="@+id/city_input"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:hint="Enter City Name"
+        android:padding="12dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/confirm_button"
+        app:layout_constraintWidth_percent="0.70" />
+
+    <!-- Confirm button: aligned with EditText, fixed to the bottom -->
+    <Button
+        android:id="@+id/confirm_button"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="CONFIRM"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/city_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
